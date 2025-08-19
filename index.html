@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Taurean Jackson — IT Student</title>
+    <meta name="description" content="Resume website for Taurean Jackson — IT student & technician: experience, education, projects, and skills." />
+    <meta name="author" content="Taurean Jackson" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="Taurean Jackson — IT Student" />
+    <meta property="og:description" content="Experience, education, projects, and skills." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+
+    <style>
+      /* =============================
+         Design tokens
+      ============================== */
+      :root {
+        --bg: #0b0d12;            /* page background */
+        --panel: #0f1420;         /* card background */
+        --text: #e8eefc;          /* primary text */
+        --muted: #a5b0c7;         /* secondary text */
+        --brand: #5aa3ff;         /* accent */
+        --brand-2: #8bd0ff;       /* accent 2 */
+        --border: #1b2436;        /* borders */
+        --ring: #2a3a58;          /* focus ring */
+        --success: #30d158;
+
+        --radius: 18px;
+        --shadow: 0 10px 30px rgba(2, 9, 30, .35), inset 0 1px 0 rgba(255,255,255,.02);
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: var(--sans);
+        background: radial-gradient(1200px 800px at 80% -10%, rgba(90,163,255,.18), transparent 50%),
+                    radial-gradient(1000px 700px at -10% 10%, rgba(139,208,255,.12), transparent 50%),
+                    var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      /* Layout */
+      .container { width: min(1100px, 92vw); margin: 0 auto; }
+      header.site-header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(8px); background: linear-gradient(180deg, rgba(11,13,18,0.85), rgba(11,13,18,0.55)); border-bottom: 1px solid var(--border); }
+      .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem 0; }
+      .nav a { color: var(--muted); text-decoration: none; font-weight: 600; }
+      .nav a:hover { color: var(--text); }
+      .nav .links { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+      /* Hero */
+      .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items: center; padding: 3.5rem 0 2rem; }
+      .hero-card { background: linear-gradient(180deg, rgba(20,25,38,.66), rgba(12,16,27,.66)); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.8rem; }
+      .eyebrow { display:inline-block; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem; color: var(--brand-2); background: rgba(138, 208, 255, .12); border: 1px solid rgba(138,208,255,.2); padding: .15rem .5rem; border-radius: 999px; }
+      h1 { font-size: clamp(1.8rem, 1.2rem + 2.5vw, 3rem); margin: .6rem 0 .2rem; line-height: 1.15; }
+      .subtitle { color: var(--muted); font-size: 1.05rem; margin-bottom: 1rem; }
+
+      .contact { display: grid; gap: .6rem; margin-top: .8rem; }
+      .contact a { color: var(--text); text-decoration: none; }
+      .contact a:hover { color: var(--brand-2); }
+
+      .quick-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin-top: 1rem; }
+      .pill { background: rgba(90,163,255,.1); border: 1px solid rgba(90,163,255,.2); color: var(--brand-2); padding: .5rem .75rem; border-radius: 999px; text-align: center; font-weight: 600; }
+
+      /* Sections */
+      section { padding: 2.5rem 0; }
+      .section-title { display:flex; align-items:center; gap:.6rem; font-size: 1.2rem; margin-bottom: 1.1rem; letter-spacing: .02em; }
+      .section-title svg { opacity: .85; }
+
+      .card { background: linear-gradient(180deg, rgba(20,25,38,.66), rgba(12,16,27,.66)); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.2rem; }
+      .grid { display: grid; gap: 1rem; }
+      .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+      .item { display: grid; gap: .4rem; }
+      .item h3 { margin: 0; font-size: 1.05rem; }
+      .item .meta { color: var(--muted); font-size: .95rem; }
+      .item ul { margin: .2rem 0 0 1rem; padding: 0; }
+      .item li { margin: .35rem 0; }
+
+      .skills { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .skill-card { padding: 1rem; border-radius: calc(var(--radius) - 6px); border: 1px dashed var(--ring); background: rgba(16,22,36,.5); }
+      .skill-card h4 { margin: 0 0 .4rem; font-size: .95rem; color: var(--brand-2); }
+      .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+      .tag { font-family: var(--mono); font-size: .85rem; padding: .25rem .5rem; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.03); color: var(--text); }
+
+      /* Footer */
+      footer { border-top: 1px solid var(--border); padding: 2rem 0 3rem; color: var(--muted); }
+      .foot { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+      .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.65rem 1rem; border-radius: 12px; border: 1px solid var(--ring); background: linear-gradient(180deg, rgba(30,40,65,.8), rgba(15,20,34,.8)); color: var(--text); text-decoration:none; font-weight:600; box-shadow: var(--shadow); }
+      .btn:hover { border-color: var(--brand); box-shadow: 0 0 0 4px rgba(90,163,255,.15); }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .hero { grid-template-columns: 1fr; }
+        .grid.cols-3 { grid-template-columns: 1fr; }
+        .grid.cols-2 { grid-template-columns: 1fr; }
+        .skills { grid-template-columns: 1fr; }
+      }
+
+      /* Print (PDF export friendly) */
+      @media print {
+        body { background: #fff; color: #111; }
+        header.site-header, .btn, nav { display: none !important; }
+        .card, .hero-card { background: #fff; border: 1px solid #ddd; box-shadow: none; }
+        a { color: #000; }
+      }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Taurean Jackson",
+        "jobTitle": "IT Student & Technician",
+        "address": {"@type": "PostalAddress", "addressLocality": "Woodbridge", "addressRegion": "VA", "addressCountry": "US"},
+        "email": "mailto:Tjjackson0122@gmail.com",
+        "telephone": "+1-571-409-0058"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#top" class="logo" aria-label="Home">TJ</a>
+        <nav class="links" aria-label="Primary">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#certs">Certifications</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="container">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="intro-heading">
+        <div class="hero-card">
+          <span class="eyebrow">Available for IT Helpdesk / Technician roles</span>
+          <h1 id="intro-heading">Taurean Jackson</h1>
+          <p class="subtitle">IT student with hands-on experience refurbishing laptops, supporting classrooms, and building custom PCs. Strong customer service and documentation skills.</p>
+
+          <div class="contact" id="contact">
+            <div>
+              <strong>Email:</strong> <a href="mailto:Tjjackson0122@gmail.com">Tjjackson0122@gmail.com</a>
+            </div>
+            <div>
+              <strong>Phone:</strong> <a href="tel:+15714090058">(571) 409-0058</a>
+            </div>
+            <div>
+              <strong>Location:</strong> Woodbridge, VA
+            </div>
+            <div>
+              <strong>LinkedIn:</strong> <a href="#" rel="me noopener" target="_blank" title="LinkedIn URL">https://www.linkedin.com/in/tjjackson0122/</a>
+            </div>
+          </div>
+
+          <div class="quick-stats" aria-label="Highlights">
+            <div class="pill">IT Assistant (NOVA)</div>
+            <div class="pill">Laptop Refurbishment</div>
+            <div class="pill">3+ Desktop Builds</div>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="At-a-glance">
+          <div class="grid">
+            <div class="item">
+              <h3>Focus</h3>
+              <p class="meta">IT Support • Helpdesk • Hardware</p>
+            </div>
+            <div class="item">
+              <h3>Currently</h3>
+              <p class="meta">A.S. Information Technology (NOVA)</p>
+            </div>
+            <div class="item">
+              <h3>Tools</h3>
+              <p class="meta">Windows 10/11, Linux Basics, PC Hardware</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" aria-labelledby="exp-heading">
+        <h2 class="section-title" id="exp-heading">
+          <!-- brief inline icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Work Experience
+        </h2>
+        <div class="grid">
+          <article class="card item" aria-labelledby="iet-title">
+            <h3 id="iet-title">IET Assistant — Northern Virginia Community College</h3>
+            <div class="meta">Woodbridge, VA · Sep 2024 – Apr 2025</div>
+            <ul>
+              <li>Supported IT classes as a Teacher’s Assistant: coursework, troubleshooting, and student guidance.</li>
+              <li>Refurbished laptops for the campus loaner program: hardware upgrades, software installation, diagnostics.</li>
+              <li>Collaborated on IT programs and activities on the Woodbridge campus.</li>
+            </ul>
+          </article>
+
+          <article class="card item" aria-labelledby="classroom-title">
+            <h3 id="classroom-title">Classroom/Office Assistant — Northern Virginia Community College</h3>
+            <div class="meta">Woodbridge, VA · Sep 2023 – Aug 2024</div>
+            <ul>
+              <li>Assisted faculty and staff with classroom technology and equipment, including hyflex classrooms.</li>
+              <li>Provided technical support for instructors teaching with technology in hyflex environments.</li>
+            </ul>
+          </article>
+
+          <article class="card item" aria-labelledby="dunkin-title">
+            <h3 id="dunkin-title">Crew Member — Dunkin/Baskin Robbins</h3>
+            <div class="meta">Manassas, VA · Sep 2022 – Sep 2023</div>
+            <ul>
+              <li>Managed customer service, point-of-sale operations, and store upkeep.</li>
+              <li>Assisted customers with tech-related purchases (POS, gift cards, mobile app).</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" aria-labelledby="proj-heading">
+        <h2 class="section-title" id="proj-heading">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Projects
+        </h2>
+        <div class="grid cols-2">
+          <article class="card item" aria-labelledby="nova-cost-title">
+            <h3 id="nova-cost-title">NOVA All Access Course Cost Comparison</h3>
+            <div class="meta">April 2024</div>
+            <ul>
+              <li>Built a 400+ row Excel dataset analyzing course material costs (flat-rate vs. traditional).</li>
+              <li>Used data visualization and color-coding to communicate insights to leadership.</li>
+            </ul>
+          </article>
+
+          <article class="card item" aria-labelledby="desktop-builds-title">
+            <h3 id="desktop-builds-title">Desktop Builds & Upgrades</h3>
+            <div class="meta">Ongoing</div>
+            <ul>
+              <li>Built and configured 3 custom desktop PCs (motherboards, CPUs, GPUs, RAM, storage).</li>
+              <li>Performed OS installation, BIOS updates, driver configuration, and stress testing.</li>
+              <li>Documented procedures and delivered maintenance instructions for end users.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" aria-labelledby="skills-heading">
+        <h2 class="section-title" id="skills-heading">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Skills
+        </h2>
+
+        <div class="skills">
+          <div class="skill-card">
+            <h4>Hardware</h4>
+            <div class="tags">
+              <span class="tag">PC Assembly</span>
+              <span class="tag">Laptop Repair</span>
+              <span class="tag">BIOS/UEFI</span>
+              <span class="tag">Peripherals</span>
+              <span class="tag">Diagnostics</span>
+              <span class="tag">Upgrades</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Software / OS</h4>
+            <div class="tags">
+              <span class="tag">Windows 10/11</span>
+              <span class="tag">Linux Basics</span>
+              <span class="tag">Drivers</span>
+              <span class="tag">OS Imaging</span>
+              <span class="tag">Updates & Patches</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Tools & Platforms</h4>
+            <div class="tags">
+              <span class="tag">Office 365</span>
+              <span class="tag">Excel</span>
+              <span class="tag">VirtualBox</span>
+              <span class="tag">VMware</span>
+              <span class="tag">Data Entry</span>
+              <span class="tag">Web Research</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Soft Skills</h4>
+            <div class="tags">
+              <span class="tag">Customer Service</span>
+              <span class="tag">Teamwork</span>
+              <span class="tag">Documentation</span>
+              <span class="tag">Time Management</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" aria-labelledby="edu-heading">
+        <h2 class="section-title" id="edu-heading">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4zm0 6l9 4 9-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Education
+        </h2>
+        <div class="card item">
+          <h3>A.S., Information Technology — Northern Virginia Community College</h3>
+          <div class="meta">Woodbridge, VA · Sep 2023 – Current</div>
+          <p class="meta">Completed 35 of 61 credits</p>
+          <p class="meta"><strong>Relevant Coursework:</strong> Introduction to Digital & Information Literacy • PC Hardware & Troubleshooting • Multimedia Software • Introduction to Programming</p>
+        </div>
+      </section>
+
+      <!-- Certifications -->
+      <section id="certs" aria-labelledby="cert-heading">
+        <h2 class="section-title" id="cert-heading">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2l2.39 4.84 5.34.78-3.86 3.76.91 5.32L12 14.77 6.22 16.7l.91-5.32L3.27 7.62l5.34-.78L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          Certifications
+        </h2>
+        <div class="card item">
+          <h3>CompTIA A+ <span class="meta">(In Progress via CertMaster Learn, expected Dec 2025)</span></h3>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section aria-labelledby="cta-heading">
+        <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+          <div>
+            <h3 id="cta-heading" style="margin:.2rem 0 .2rem">Open to IT Helpdesk & Technician roles</h3>
+            <p class="meta" style="margin:0">Reach out for questions, collaboration, or entry-level helpdesk opportunities.</p>
+          </div>
+          <div style="display:flex; gap:.6rem; flex-wrap:wrap;">
+            <a class="btn" href="mailto:Tjjackson0122@gmail.com" aria-label="Email Taurean">Email Me
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 8l8 5 8-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/tjjackson0122/" target="_blank" rel="noopener" title="Linkedin URL">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container foot">
+        <small>© <span id="year"></span> Taurean Jackson. All rights reserved.</small>
+        <div style="display:flex; gap:.5rem;">
+          <a class="btn" href="#top">Back to top</a>
+          <a class="btn" href="Resume.pdf" download title="Download PDF Resume">Download PDF</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Update year automatically
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    <!--
+      Deployment Notes
+      1) Save this as index.html at your repo root for GitHub Pages or upload to Netlify/Vercel (static).
+      2) Replace href="#" placeholders with your real LinkedIn URL and (optionally) a canonical site URL in og:url.
+      3) To add a custom domain on GitHub Pages, create a CNAME file with your domain and configure DNS (A/ALIAS to GitHub Pages or CNAME to username.github.io).
+    -->
+  </body>
+</html>
