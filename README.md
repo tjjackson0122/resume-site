@@ -13,17 +13,6 @@ Deployed with [GitHub Pages](https://pages.github.com/) at: [taureanjackson.com]
 
 ---
 
-## 📂 Project Structure
-
-/index.html # main site
-/404.html # custom error page
-/Resume.pdf # downloadable resume
-/LICENSE # open-source license
-/README.md # this file
-
-
----
-
 ## 🛠️ Deployment
 This site is deployed using **GitHub Pages**. To update:
 ```bash
