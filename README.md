@@ -16,4 +16,4 @@ Deployed with [GitHub Pages](https://pages.github.com/) at: [taureanjackson.com]
 ## AI Note
 This project's front-end code were generated with assistance from GPT-5. Final edits and review were performed manually.
 
-If you rely on third-party code or libraries, keep their original licenses and attributions intact. AI assistance does not change legal obligations.
+
