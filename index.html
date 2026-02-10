@@ -19,14 +19,14 @@
          Design tokens
       ============================== */
       :root {
-        --bg: #0b0d12;            /* page background */
-        --panel: #0f1420;         /* card background */
-        --text: #e8eefc;          /* primary text */
-        --muted: #a5b0c7;         /* secondary text */
-        --brand: #5aa3ff;         /* accent */
-        --brand-2: #8bd0ff;       /* accent 2 */
-        --border: #1b2436;        /* borders */
-        --ring: #2a3a58;          /* focus ring */
+        --bg: #000000;            /* page background */
+        --panel: #000000;         /* card background */
+        --text: #ffffff;          /* primary text */
+        --muted: #ffffff9a;         /* secondary text */
+        --brand: #000000;         /* accent */
+        --brand-2: #ffffff;       /* accent 2 */
+        --border: #ffffff;        /* borders */
+        --ring: #000000;          /* focus ring */
         --success: #30d158;
 
         --radius: 18px;
@@ -46,9 +46,7 @@
       body {
         margin: 0;
         font-family: var(--sans);
-        background: radial-gradient(1200px 800px at 80% -10%, rgba(90,163,255,.18), transparent 50%),
-                    radial-gradient(1000px 700px at -10% 10%, rgba(139,208,255,.12), transparent 50%),
-                    var(--bg);
+        background: var(--bg);
         color: var(--text);
         line-height: 1.6;
       }
@@ -267,22 +265,6 @@
               <li>Documented procedures and delivered maintenance instructions for end users.</li>
             </ul>
           </article>
-
-          <article class="card item" aria-labelledby="homelab-title">
-            <h3 id="homelab-title">Homelab &amp; Self‑Hosted Server Administration</h3>
-            <div class="meta">Ongoing</div>
-            <p class="meta"><strong>Technologies:</strong> Ubuntu Server, Docker Compose, Nextcloud, Plex, Pi‑hole, Nginx Proxy Manager, MariaDB</p>
-            <ul>
-              <li>Built and maintain a personal homelab environment to self‑host critical services and experiment with distributed systems, networking, and container orchestration.</li>
-              <li>Deployed and managed a multi‑service Ubuntu server using Docker Compose (Nextcloud, Plex, Pi‑hole).</li>
-              <li>Configured multi‑interface networking, static IPs, and DNS; resolved container networking and volume conflicts.</li>
-              <li>Migrated Nextcloud from SQLite to MariaDB; managed persistent storage, service dependencies, and environment variables.</li>
-              <li>Implemented local DNS resolution with Pi‑hole, enabling domains for homelab services.</li>
-              <li>Integrated Nginx Proxy Manager to route traffic through clean domain names and resolve HTTP/HTTPS mismatches and domain trust issues.</li>
-              <li>Configured Nextcloud trusted domains and overwrite settings to support secure LAN access via reverse proxy.</li>
-              <li>Diagnosed and corrected Windows DNS adapter conflicts, ensuring consistent domain resolution across multiple interfaces.</li>
-            </ul>
-          </article>
         </div>
       </section>
 
@@ -318,23 +300,6 @@
           </div>
 
           <div class="skill-card">
-            <h4>Platforms & Services</h4>
-            <div class="tags">
-              <span class="tag">Ubuntu Server</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Docker Compose</span>
-              <span class="tag">Nextcloud</span>
-              <span class="tag">Plex</span>
-              <span class="tag">Pi‑hole</span>
-              <span class="tag">Nginx Proxy Manager</span>
-              <span class="tag">MariaDB</span>
-              <span class="tag">DNS</span>
-              <span class="tag">Nginx</span>
-              <span class="tag">Reverse Proxy</span>
-            </div>
-          </div>
-
-          <div class="skill-card">
             <h4>Soft Skills</h4>
             <div class="tags">
               <span class="tag">Customer Service</span>
@@ -355,8 +320,8 @@
         <div class="card item">
           <h3>A.S., Information Technology — Northern Virginia Community College</h3>
           <div class="meta">Woodbridge, VA · Sep 2023 – Current</div>
-          <p class="meta">Completed 35 of 61 credits</p>
-          <p class="meta"><strong>Relevant Coursework:</strong> Introduction to Digital & Information Literacy • PC Hardware & Troubleshooting • Multimedia Software • Introduction to Programming</p>
+          <p class="meta">Completed 41 of 61 credits</p>
+          <p class="meta"><strong>Relevant Coursework:</strong> Introduction to Digital & Information Literacy • PC Hardware & Troubleshooting • Multimedia Software • Introduction to Programming • Advanced Database Management • Introduction to Telecommunications</p>
         </div>
       </section>
 
@@ -408,6 +373,20 @@
     Highlights professional readiness, quantitative reasoning, ethical computing, and effective written communication
     in technical contexts.</p>
     </article>
+
+    <article class="card item">
+      <h3>ITN 100 — Introduction to Telecommunications</h3>
+      <p class="meta">Introduces modern communications and networking concepts. Students study transmission media, analog and digital signaling, coding, and OSI-layer protocols.
+         Topics include circuit and packet sharing, LAN topologies, decentralization techniques, data communications equipment, Internet technologies, and fundamentals of digital image and audio processing.</p>
+    </article>
+
+    <article class="card item">
+      <h3>ITD 256 - Advanced Database Management</h3>
+      <p class="meta">This course builds advanced database skills, covering core terminology, data relationships, and normalization. 
+        Students learn to transform conceptual models such as ERDs into normalized relational designs, use SQL for data definition and queries, address DBMS security and risk reduction, 
+        understand DBA roles, and apply database principles to information systems design.</p>
+    </article>
+
   </div>
   <p class="meta muted-note">
     Descriptions condensed from official course objectives (NOVA catalog).
@@ -434,7 +413,7 @@
     <footer>
       <div class="container foot">
   <small>© <span id="year"></span> Taurean Jackson. All rights reserved.</small>
-  <small style="color:var(--muted); font-size:.85rem;">This site includes code generated with assistance from GPT-5.</small>
+  <small style="color:var(--muted); font-size:.85rem;">This site includes code generated with assistance from Github Copilot. </small>
   <div class="flex-row-gap" style="gap:.5rem;">
           <a class="btn" href="#top">Back to top</a>
           <a class="btn" href="Resume.pdf" download title="Download PDF Resume">Download Resume PDF</a>
